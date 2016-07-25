@@ -1,0 +1,27 @@
+<h1>This is my Person component</h1>
+
+<div class="person-container">
+  <form class="person-form"
+        [formGroup]="personForm"
+        (submit)="add(personForm.value.somethingSomething)">
+
+    <h2 class="person-title">{{name}}</h2>
+
+    <input type="text"
+           formControlName="somethingSomething"
+           [class.todo-error]="!personForm.valid"
+           placeholder="Who's there?"
+           autofocus />
+
+    <button type="submit"
+            [disabled]="!personForm.valid">+</button>
+  </form>
+
+  <div class="person-list">
+    <ul class="persons">
+        <li *ngFor="let person of persons;">
+            <span (click)="remove(person._id)">{{person.somethingSomething}}</span>
+        </li>
+    </ul>
+  </div>
+</div>
